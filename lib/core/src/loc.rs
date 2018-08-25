@@ -25,7 +25,7 @@ impl<T: serde::Serialize> serde::Serialize for Loc<T> {
 impl<T> Loc<T> {
     pub fn new<P: Into<Span>>(inner: T, span: P) -> Loc<T> {
         Loc {
-            inner: inner,
+            inner,
             span: span.into(),
         }
     }
@@ -54,11 +54,12 @@ impl<T> Loc<T> {
     where
         O: FnOnce(T) -> U,
     {
-        Loc::new(op(loc.inner), loc.span.clone())
+        Loc::new(op(loc.inner), loc.span)
     }
 
+    /// Convert a reference to a loc, into a loc of a reference.
     pub fn as_ref(loc: &Loc<T>) -> Loc<&T> {
-        Loc::new(&loc.inner, loc.span.clone())
+        Loc::new(&loc.inner, loc.span)
     }
 
     /// Apply the fallible operation over the given location.
@@ -66,7 +67,7 @@ impl<T> Loc<T> {
     where
         O: FnOnce(T) -> result::Result<U, E>,
     {
-        op(inner).map(|value| Loc::new(value, span.clone()))
+        op(inner).map(|value| Loc::new(value, span))
     }
 }
 
@@ -157,6 +158,6 @@ where
 
 impl<'a, T> From<&'a Loc<T>> for Span {
     fn from(value: &'a Loc<T>) -> Self {
-        Loc::span(value).clone()
+        Loc::span(value)
     }
 }

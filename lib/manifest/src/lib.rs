@@ -155,6 +155,8 @@ pub trait Lang: fmt::Debug {
     fn endpoint_ident_naming(&self) -> Option<Box<Naming>> {
         None
     }
+
+    fn modules(&self) -> Option<Box<String>> { None }
 }
 
 /// Fallback language support in case no language is specified.

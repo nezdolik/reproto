@@ -16,6 +16,12 @@ pub fn options<'a, 'b>() -> App<'a, 'b> {
             .help("Language to build for"),
     );
 
+    let out = out.arg(
+        Arg::with_name("list-modules")
+            .long("list-modules")
+            .help("List available modules and their corresponding configurations"),
+    );
+
     out
 }
 

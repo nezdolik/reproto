@@ -110,6 +110,10 @@ impl Lang for JavaLang {
             ("while", "_while"),
         ]
     }
+
+    fn modules(&self) -> Option<Box<String>> {
+        Some(Box::new(String::from("jackson, lombok")))
+    }
 }
 
 #[derive(Debug)]

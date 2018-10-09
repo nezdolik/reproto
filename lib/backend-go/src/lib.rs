@@ -58,6 +58,10 @@ impl Lang for GoLang {
     fn field_ident_naming(&self) -> Option<Box<Naming>> {
         Some(Box::new(naming::to_upper_camel()))
     }
+
+    fn modules(&self) -> Option<Box<String>> {
+        Some(Box::new(String::from("encodingJson")))
+    }
 }
 
 #[derive(Debug)]

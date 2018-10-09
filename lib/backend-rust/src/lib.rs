@@ -106,6 +106,10 @@ impl Lang for RustLang {
             ("yield", "_yield"),
         ]
     }
+
+    fn modules(&self) -> Option<Box<String>> {
+        Some(Box::new(String::from("Chrono, grpc, reqwest")))
+    }
 }
 
 #[derive(Debug)]

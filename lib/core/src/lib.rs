@@ -28,6 +28,7 @@ mod fs;
 mod import;
 mod loc;
 mod mime;
+pub mod model;
 mod option_entry;
 mod options;
 pub mod regex;

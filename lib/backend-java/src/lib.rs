@@ -111,8 +111,8 @@ impl Lang for JavaLang {
         ]
     }
 
-    fn modules(&self) -> Option<Box<String>> {
-        Some(Box::new(String::from("jackson, lombok")))
+    fn modules(&self) -> Option<String> {
+        Some(String::from("jackson, lombok"))
     }
 }
 

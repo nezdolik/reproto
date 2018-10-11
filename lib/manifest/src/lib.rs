@@ -156,7 +156,7 @@ pub trait Lang: fmt::Debug {
         None
     }
 
-    fn modules(&self) -> Option<Box<String>> { None }
+    fn modules(&self) -> Option<String> { None }
 }
 
 /// Fallback language support in case no language is specified.

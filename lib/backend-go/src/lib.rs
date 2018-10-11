@@ -59,8 +59,8 @@ impl Lang for GoLang {
         Some(Box::new(naming::to_upper_camel()))
     }
 
-    fn modules(&self) -> Option<Box<String>> {
-        Some(Box::new(String::from("encodingJson")))
+    fn modules(&self) -> Option<String> {
+        Some(String::from("encodingJson"))
     }
 }
 

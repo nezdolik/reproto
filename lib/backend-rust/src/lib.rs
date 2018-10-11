@@ -107,8 +107,8 @@ impl Lang for RustLang {
         ]
     }
 
-    fn modules(&self) -> Option<Box<String>> {
-        Some(Box::new(String::from("Chrono, grpc, reqwest")))
+    fn modules(&self) -> Option<String> {
+        Some(String::from("Chrono, grpc, reqwest"))
     }
 }
 
